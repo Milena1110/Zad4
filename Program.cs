@@ -1,0 +1,68 @@
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+/* Задача 25:
+Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+3, 5 -> 243 (3⁵); 2, 4 -> 16 */
+
+int a = ReadInt("Введите число: ");
+int b = ReadInt("Введите степень: ");
+int rez = 1;
+ToDegree(a, b);
+// Функция возведения в степень
+void ToDegree(int a, int b)
+{;
+    for (int i = 1; i <= b; i++)
+    {
+       rez = rez * a;
+    }
+    Console.WriteLine(a + " в степени " + b + " = " + rez);
+}
+
+// Функция ввода
+int ReadInt(string message)
+{
+    Console.WriteLine(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
+/* Задача 27 Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+452 -> 11;  82 -> 10;  9012 -> 12   */
+
+int number = ReadInt("Введите число: ");
+
+int len = NumberLen(number);
+SumNumbers(number, len);
+
+// Функция подсчета цифр в числе
+int NumberLen(int a)
+{
+    int index = 0;
+    while (a > 0)
+    {
+        a /= 10;
+        index++;
+    }
+    return index;
+}
+
+// Функция вывода суммы цифр в числе
+void SumNumbers(int n, int len)
+{
+    int sum = 0;
+    for (int i = 1; i <= len; i++)
+    {
+        sum += n % 10;
+        n /= 10;
+    }
+    Console.WriteLine($"сумма цифр {sum}");
+}
+/* Задача 29 Напишите программу, которая задаёт массив из N элементов и выводит их на экран.
+5 -> [1, 2, 5, 7, 19]; 3 -> [6, 1, 33] */
+
+int lenArray = ReadInt("Введите длинну массива: ");
+
+int[] randomArray = new int[lenArray];
+for (int i = 0; i < randomArray.Length; i++)
+{
+    randomArray[i] = new Random().Next(1,9);
+    Console.Write(randomArray[i] + " ");
+}
